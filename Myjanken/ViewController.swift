@@ -14,6 +14,32 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBOutlet weak var answerImageView: UIImageView!
+    
+    @IBOutlet weak var answerLabel: UILabel!
+    
+    
+    //ジャンケン（数字）
+    var answerNumber = 0
+    
+    @IBAction func shuffleAction(_ sender: Any) {
+        if answerNumber == 0 {
+        answerLabel.text = "グー"
+        answerImageView.image = UIImage(named: "gu")
+            
+        } else if answerNumber == 1 {
+            answerLabel.text = "チョキ"
+            answerImageView.image = UIImage(named: "choki")
+        } else if answerNumber == 2 {
+            answerLabel.text = "パー"
+            answerImageView.image = UIImage(named: "pa")
+        }
+        //次のじゃんけんへ
+        answerNumber = Int.random(in: 0..<3)
+        
+        //新しいじゃんけんの結果を一時保存
+        
+    }
+    
 }
 
