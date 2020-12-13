@@ -23,6 +23,19 @@ class ViewController: UIViewController {
     var answerNumber = 0
     
     @IBAction func shuffleAction(_ sender: Any) {
+        
+        //次のじゃんけんへ
+        
+        //新しいじゃんけんの結果を一時保存
+        var newAnswerNumber = 0
+        
+        repeat {
+            newAnswerNumber = Int.random(in: 0..<3)
+        } while answerNumber == newAnswerNumber
+        
+        answerNumber = newAnswerNumber
+        
+        //ジャンケンの機能
         if answerNumber == 0 {
         answerLabel.text = "グー"
         answerImageView.image = UIImage(named: "gu")
@@ -34,11 +47,6 @@ class ViewController: UIViewController {
             answerLabel.text = "パー"
             answerImageView.image = UIImage(named: "pa")
         }
-        //次のじゃんけんへ
-        answerNumber = Int.random(in: 0..<3)
-        
-        //新しいじゃんけんの結果を一時保存
-        
     }
     
 }
